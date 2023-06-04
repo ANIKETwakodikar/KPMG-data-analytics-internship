@@ -1,0 +1,73 @@
+I hope this email finds you well. I would like to bring your attention to some important data quality issues identified in the transaction table, new customer list, and customer demographic table. Resolving these issues is crucial to ensure accurate analysis and reliable insights. Below, I have outlined the identified data quality issues along with recommended strategies to mitigate them:
+
+Transaction Table Issues:
+
+Inconsistencies in the "online_order" column:
+The "online_order" column contains boolean values represented as "true" and "false," but it also includes numeric representations of 0 and 1. To resolve this issue, we suggest standardizing the values in the "online_order" column to either "true" or "false" throughout the table.
+
+Presence of null values:
+After examining the transaction table, we found the following number of null values in the respective columns:
+
+online_order: 360
+brand: 197
+product_line: 197
+product_class: 197
+product_size: 197
+standard_cost: 197
+product_first_sold_date: 197
+
+To handle these null values, we recommend the following approach:
+
+For categorical columns (e.g., brand, product_line, product_class, and product_size), we suggest filling the null values with the mode (most frequent value) of the respective column.
+For numerical columns (e.g., online_order and standard_cost), we recommend filling the null values with the column's average value.
+Regarding the "product_first_sold_date" column, we require additional information on the expected date format to ensure accurate data handling. Please provide clarification, or we can discuss potential solutions together.
+New Customer List Issues:
+
+Presence of null values:
+After examining the new customer list, we found null values in the following columns:
+DOB: 17
+job_title: 106
+job_industry_category: 165
+last_name: 29
+To address these null values, we recommend applying appropriate strategies based on the context and importance of each column. We may consider techniques such as imputation or further investigation to determine the best course of action.
+
+Customer Demographic Table Issues:
+
+Inconsistent values in the "gender" column:
+The "gender" column contains inconsistent values, including ['F', 'Male', 'Female', 'U', 'Femal', 'M']. To resolve this issue, we suggest standardizing the gender values to a single representation (e.g., 'Male' and 'Female') and addressing any incorrect or ambiguous entries.
+
+Presence of null values:
+After examining the customer demographic table, we found null values in the following columns:
+
+last_name: 125
+DOB: 87
+job_title: 506
+job_industry_category: 656
+default: 302
+tenure: 87
+To handle these null values, we recommend appropriate strategies such as imputation, considering the nature of each column and the potential impact on subsequent analyses.
+
+Additional Recommendations:
+
+Data type corrections:
+In the transaction table, the "transaction_date" column should have a date data type, and the "standard_cost" column should have a float data type. We recommend adjusting the data types accordingly to facilitate accurate calculations and operations.
+In both the new customer list and customer demographic table, the "DOB" column should have a datetime data type to enable proper date-related analyses.
+Standardization of Boolean columns:
+In both the new customer list and customer demographic table, columns such as "deceased indicator" and "owns_car" should be represented as boolean values (True/False) instead of "N"/"Y" or "Yes"/"No". We suggest updating these columns to improve clarity and consistency.
+
+Gibberish values in the "default" column:
+In the customer demographic table, the "default" column contains gibberish values. We recommend investigating the source of these values and taking appropriate action, such as cleaning the data or seeking clarification on the correct values.
+
+By addressing these data quality issues and implementing the suggested strategies, we can enhance the reliability and usability of the datasets for our analysis. If you have any questions, concerns, or specific instructions regarding these issues, please feel free to share them with us. We are committed to delivering high-quality insights and resolving any further issues promptly.
+
+Thank you for your attention to this matter.
+
+Best regards,
+
+
+
+
+
+
+
+
